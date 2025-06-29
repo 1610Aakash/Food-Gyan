@@ -1,0 +1,17 @@
+<nav class="navbar">
+  <div class="logo">🍽️ Food Gyan</div>
+
+  <ul class="nav-links">
+    <li><a routerLink="/">Home</a></li>
+    <li><a routerLink="/recipes">Recipes</a></li>
+
+    <ng-container *ngIf="!isAuthenticated; else loggedIn">
+      <li><a routerLink="/login">Login</a></li>
+      <li><a routerLink="/register">Register</a></li>
+    </ng-container>
+
+    <ng-template #loggedIn>
+      <li><a (click)="logout()">Logout</a></li>
+    </ng-template>
+  </ul>
+</nav>

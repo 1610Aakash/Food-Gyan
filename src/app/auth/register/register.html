@@ -1,0 +1,48 @@
+<div class="style">
+  <div class="auth-form">
+    <h2>Register</h2>
+    <form (ngSubmit)="register()">
+      <label for="name">Name</label>
+      <input
+        id="name"
+        type="text"
+        [(ngModel)]="name"
+        name="name"
+        placeholder="Enter your name"
+        required
+      />
+
+      <label for="email">Email</label>
+      <input
+        id="email"
+        type="email"
+        [(ngModel)]="email"
+        name="email"
+        placeholder="Enter your email"
+        required
+      />
+
+      <label for="password">Password</label>
+      <input
+        id="password"
+        type="password"
+        [(ngModel)]="password"
+        name="password"
+        placeholder="Create a password"
+        required
+      />
+
+      <button type="submit">Register</button>
+    </form>
+
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+
+    <p class="auth-toggle">
+      Already have an account?
+      <a [routerLink]="['/login']">Login here</a>
+    </p>
+
+  </div>
+</div>
+
+

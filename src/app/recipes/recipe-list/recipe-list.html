@@ -1,0 +1,33 @@
+
+<div class="container">
+  <button class="add-btn" (click)="openAddForm()">➕ Add New Recipe</button>
+
+  <div *ngIf="showForm" class="form-box">
+    <h3>{{ isEditMode ? 'Edit Recipe' : 'Add Recipe' }}</h3>
+    <form (ngSubmit)="saveRecipe()" #recipeForm="ngForm">
+      <input [(ngModel)]="formRecipe.title" name="title" placeholder="Title" required />
+      <textarea [(ngModel)]="formRecipe.description" name="description" placeholder="Description" required></textarea>
+      <input type="number" [(ngModel)]="formRecipe.calories" name="calories" placeholder="Calories" required />
+      <input type="number" [(ngModel)]="formRecipe.protein" name="protein" placeholder="Protein" required />
+      <input [(ngModel)]="formRecipe.allergies" name="allergies" placeholder="Allergies" />
+      <div class="form-actions">
+        <button type="submit">{{ isEditMode ? 'Update' : 'Add' }}</button>
+        <button type="button" (click)="cancelForm()">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="recipe-grid">
+    <div class="card" *ngFor="let recipe of recipes">
+      <h3>{{ recipe.title }}</h3>
+      <p>{{ recipe.description }}</p>
+      <p><strong>Calories:</strong> {{ recipe.calories }}</p>
+      <p><strong>Protein:</strong> {{ recipe.protein }}</p>
+      <p><strong>Allergies:</strong> {{ recipe.allergies }}</p>
+      <div class="card-actions">
+        <button (click)="openEditForm(recipe)">✏️ Edit</button>
+        <button (click)="deleteRecipe(recipe.id)">🗑️ Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

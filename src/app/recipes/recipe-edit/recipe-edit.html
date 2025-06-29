@@ -1,0 +1,13 @@
+<h2>Edit Recipe</h2>
+
+<form (ngSubmit)="updateRecipe()">
+  <input type="text" [(ngModel)]="recipe.title" name="title" placeholder="Title" required />
+  <textarea [(ngModel)]="recipe.description" name="description" placeholder="Description" required></textarea>
+  
+  <input type="number" [(ngModel)]="recipe.calories" name="calories" placeholder="Calories" required />
+  <input type="number" [(ngModel)]="recipe.protein" name="protein" placeholder="Protein" required />
+  <input type="text" [(ngModel)]="recipe.allergies" name="allergies" placeholder="Allergy Info" />
+  
+  <button type="submit">Update Recipe</button>
+</form>
+
