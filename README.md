@@ -1,59 +1,137 @@
-# Frontend
+🍽️ Food Gyan
+Food Gyan is a full-stack web application where users can register/login and manage their personal recipes. Each recipe includes nutritional information like calories, protein, and allergies.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.4.
+🧰 Tech Stack
+Layer	Technology
+Frontend	Angular (Standalone Components)
+Backend	Node.js + Express.js
+Database	Neo4j (Graph Database)
+Auth	JWT (JSON Web Tokens)
 
-## Development server
+🚀 Features
+User Registration & Login with JWT
 
-To start a local development server, run:
+Authenticated Recipe CRUD (Create, Read, Update, Delete)
 
-```bash
+Recipes stored per user
+
+Neo4j Graph DB integration
+
+Responsive UI using Angular
+
+🧾 Prerequisites
+Before running the project, make sure you have:
+
+Node.js (v16+ recommended)
+
+npm (comes with Node)
+
+Neo4j Desktop or Aura DB
+
+Angular CLI installed globally:
+
+bash
+Copy
+Edit
+npm install -g @angular/cli
+📦 Folder Structure
+bash
+Copy
+Edit
+Food-Gyan/
+│
+├── Backend/         # Express.js + Neo4j backend
+├── Frontend/        # Angular frontend app
+└── README.md
+⚙️ Backend Setup (Node.js + Neo4j)
+Open terminal and go to the backend folder:
+
+bash
+Copy
+Edit
+cd Backend
+Install dependencies:
+
+bash
+Copy
+Edit
+npm install
+Create a .env file:
+
+env
+Copy
+Edit
+PORT=5000
+NEO4J_URI=neo4j://localhost:7687
+NEO4J_USER=neo4j
+NEO4J_PASSWORD=your_neo4j_password
+JWT_SECRET=your_jwt_secret_key
+Start your Neo4j database (via Neo4j Desktop or other setup)
+
+Start the backend server:
+
+bash
+Copy
+Edit
+npm start
+✅ You should see: ✅ Server running on port 5000
+
+🖥️ Frontend Setup (Angular)
+Open a new terminal and navigate to the frontend folder:
+
+bash
+Copy
+Edit
+cd Frontend
+Install dependencies:
+
+bash
+Copy
+Edit
+npm install
+Start the Angular development server:
+
+bash
+Copy
+Edit
 ng serve
-```
+Visit the app in your browser at:
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+arduino
+Copy
+Edit
+http://localhost:4200
+🔐 Authentication
+On successful registration, a JWT token is stored in localStorage.
 
-## Code scaffolding
+Login persists the session until logout.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Navbar hides login/register once logged in.
 
-```bash
-ng generate component component-name
-```
+Recipes are linked per user (via JWT token).
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+🧪 Testing
+To test the backend APIs, you can use:
 
-```bash
-ng generate --help
-```
+Postman
 
-## Building
+Curl
 
-To build the project run:
+Frontend app's built-in forms
 
-```bash
-ng build
-```
+📬 API Endpoints
+Method	Endpoint	Description
+POST	/api/auth/register	Register a new user
+POST	/api/auth/login	Login with email/pass
+GET	/api/recipes/:email	Get all recipes for a user
+POST	/api/recipes	Add new recipe
+DELETE	/api/recipes/:id	Delete a recipe
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+✨ Future Improvements
+Edit recipe functionality on backend
 
-## Running unit tests
+Image upload for recipes
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Filter/search functionality
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Nutrition API integration
